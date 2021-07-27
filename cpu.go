@@ -1,3 +1,9 @@
+/*
+read me
+This file is is the fcpu plugin form the telegraf plugin for praticing purposes and how to make
+implement them as well also to out put to cpu.output for practicing 
+*/
+
 package workspace
 
 

@@ -1,4 +1,12 @@
 package workspace
+
+/*
+read me
+This file is is the file plugin form the telegraf plugin for praticing purposes and how to make
+implement them as well 
+
+
+*/
 import (
 	"fmt"
 	"io/ioutil"
