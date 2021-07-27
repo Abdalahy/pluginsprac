@@ -1,4 +1,15 @@
+/*
+read me
+This file is for pratcing a custom plugin for telegraf
+to help show and create progress
+
+
+*/
+
+
+
 package main
+
 
 import (
 	"fmt"
