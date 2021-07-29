@@ -30,7 +30,9 @@ type File struct {
 	filenames []string
 	decoder   *encoding.Decoder
 }
-
+/*
+sample configuration
+*/
 const sampleConfig = `
   ## Files to parse each interval.  Accept standard unix glob matching rules,
   ## as well as ** to match recursive files and directories.
@@ -53,17 +55,23 @@ const sampleConfig = `
 func (f *File) SampleConfig() string {
 	return sampleConfig
 }
-
+/*
+sample description to explain the plug in
+*/
 func (f *File) Description() string {
 	return "Parse a complete file each interval"
 }
-
+/*
+initial state fuction that intitates the plug in
+*/
 func (f *File) Init() error {
 	var err error
 	f.decoder, err = encoding.NewDecoder(f.CharacterEncoding)
 	return err
 }
-
+/*
+gather  configuration function to gather all of the metrics 
+*/
 func (f *File) Gather(acc telegraf.Accumulator) error {
 	err := f.refreshFilePaths()
 	if err != nil {

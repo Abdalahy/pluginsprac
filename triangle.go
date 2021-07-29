@@ -22,24 +22,38 @@ import (
 
 	// "github.com/influxdata/telegraf/plugins/inputs"	
 )
+
+/*
+trig struct
+*/
 type Trig struct {
 x float64
 Amplitude float64
 
 }
+/*
+sample configuration
+*/
+
 var TrigConfig = `
 ## Set the amplitude
 amplitude = 10.0
 `
-
+/*
+sample configuration
+*/
 func (s *Trig) SampleConfig string {
 return TrigConfig
 }
-
+/*
+sample description to explain the plug in
+*/
 func (s *Trig) Description string {
 	return "returns sine and cosie waves"
 	}
-
+/*
+gather  configuration function to gather all of the metrics 
+*/
 func (s *Trig) Gather (acc telegraf.Accumulator) error {
 		
 	
@@ -58,7 +72,9 @@ func (s *Trig) Gather (acc telegraf.Accumulator) error {
 	
 	return nil
 }	
-
+/*
+initial state fuction that intitates the plug in
+*/
 func init(){
 	inputs.Add("trig", func() telegraf.Input { return &Trig{x: 0.0} })
 }

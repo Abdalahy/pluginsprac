@@ -36,7 +36,9 @@ func NewCPUStats(ps system.PS) *CPUStats {
 func (c *CPUStats) Description() string {
 	return "Read metrics about cpu usage"
 }
-
+/*
+sample configuration
+*/
 var sampleConfig = `
   ## Whether to report per-cpu stats or not
   percpu = true
@@ -47,11 +49,15 @@ var sampleConfig = `
   ## If true, compute and report the sum of all non-idle CPU states
   report_active = false
 `
-
+/*
+sample description to explain the plug in
+*/
 func (c *CPUStats) SampleConfig() string {
 	return sampleConfig
 }
-
+/*
+gather  configuration function to gather all of the metrics 
+*/
 func (c *CPUStats) Gather(acc telegraf.Accumulator) error {
 	times, err := c.ps.CPUTimes(c.PerCPU, c.TotalCPU)
 	if err != nil {
@@ -145,7 +151,9 @@ func activeCPUTime(t cpuUtil.TimesStat) float64 {
 	active := totalCPUTime(t) - t.Idle
 	return active
 }
-
+/*
+initial state fuction that intitates the plug in
+*/
 func init() {
 	inputs.Add("cpu", func() telegraf.Input {
 		return &CPUStats{
