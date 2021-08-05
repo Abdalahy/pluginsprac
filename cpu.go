@@ -4,7 +4,7 @@ This file is is the fcpu plugin form the telegraf plugin for praticing purposes 
 implement them as well also to out put to cpu.output for practicing 
 */
 
-package workspace
+package GO-WORKSPACE
 
 
 import (

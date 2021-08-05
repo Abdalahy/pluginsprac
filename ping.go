@@ -1,4 +1,4 @@
-package main
+package GO-WORKSPACE
 
 import (
 	"errors"
